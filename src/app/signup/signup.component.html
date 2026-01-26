@@ -1,0 +1,60 @@
+<div class="home-hero">
+  <div class="hero-card">
+    <h1 class="title">Welcome to Rima's App</h1>
+    <p class="subtitle">Create an account to get started.</p>
+
+    <p class="success-message" *ngIf="signupSuccess">
+      {{ message }}
+    </p>
+
+    <p class="error-message" *ngIf="!signupSuccess && message">
+      {{ message }}
+    </p>
+
+    <form class="auth-form" (submit)="onSubmit($event)">
+      <div class="form-row">
+        <label class="sr-only">Name</label>
+        <input
+          name="name"
+          type="text"
+          required
+          placeholder="Full name"
+          [(ngModel)]="user.name"
+        />
+      </div>
+
+      <div class="form-row">
+        <label class="sr-only">Email</label>
+        <input
+          name="email"
+          type="email"
+          required
+          placeholder="Email"
+          [(ngModel)]="user.email"
+        />
+      </div>
+
+      <div class="form-row">
+        <label class="sr-only">Password</label>
+        <input
+          name="password"
+          type="password"
+          required
+          placeholder="Password"
+          [(ngModel)]="user.password"
+        />
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="goToLogin()"
+        >
+          Login
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
